@@ -24,7 +24,7 @@ class DataLogger():
         try:
             valid_path_detected = os.path.isdir(path)
         except Exception as e:
-            print e
+            print "\n\n", e
             valid_path_detected = False
 
         if valid_path_detected:
@@ -42,6 +42,8 @@ class DataLogger():
         for k in header_list:
             header_str += str(k) + ","
         output_file.write(header_str[:-1] + "\n")
+
+        output_file.close()
 
         self.log_file_name = path + filename_str
 
@@ -67,12 +69,12 @@ class DataLogger():
         # Close file object
         log_file.close()
 
+
 if __name__ == "__main__":
-    import data_logger
     import datetime
     import time
 
-    logger = data_logger.DataLogger(header_list=['Date-Time', 'Voltage', 'Current'])
+    logger = DataLogger(header_list=['Date-Time', 'Voltage', 'Current'])
     time_now = datetime.datetime.now()
 
     voltage_read = 5.0
