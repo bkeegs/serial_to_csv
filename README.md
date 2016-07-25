@@ -4,7 +4,8 @@ This is a simple set of code to log serial data (e.g. from an arduino) and store
 For use with Python 2.7 and Windows.
 
 Example:
-```import data_logger
+```
+import data_logger
 import datetime
 
 logger = data_logger.DataLogger(header_list=['Date-Time', 'Voltage', 'Current'], 'C:\\ThisDirectory\\')
